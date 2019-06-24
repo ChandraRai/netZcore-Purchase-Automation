@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+  	<parameter name="cardNumber" value="1004300118073"/><!-- Card Number -->
+ 	<parameter name="password" value="1234"/><!-- Password -->
+ 	<parameter name="location" value=".\\Report\\Report.html"/> 
+ 	<!--<parameter name="filePath" value="C:\\inetpub\\wwwroot\\netZcorePurchase\\web.config"/> -->
+ 	<parameter name="filePath" value="C:\\Users\\chandra.rai\\Desktop\\web.config"/>  	
+ 	<parameter name="webDriver" value=".\\lib\\chromedriver.exe"/><!-- chrome driver -->
+ 	<parameter name="url" value="https://validation.itcsystems.com:443"/><!-- url -->
+  <groups>	
+	<run>	
+   		<!-- TestCases 
+   		
+   		(Case Sensitive)
+   		
+   		method initializeChrome, Groups Initialization, TestAll
+		priority 1, method validateLoginPage, Groups Initialization, TestAll
+		priority 2, method checkPageTitle, groups UX, CheckPageTitle, TestAll
+		priority 3, method checkAccountSummary, groups AccountSummary, TestAll
+		priority 4, method checkTransactionHistory, groups checkTransactionHistory, Transaction, TestAll
+		priority 5, method checkTermsAndConditions, groups TestAll, checkTermsAndConditions
+		priority 6, method validateBalanceRefund, groups Transaction, TestAll, validateBalanceRefund
+		priority 7, method validateBalanceTransfer, groups Transaction, TestAll, validateBalanceTransfer
+		priority 9, method payFines, groups Transaction, TestAll, payFines
+		priority 8, method addMoney, groups Transaction, TestAll, addMoney
+		priority 10, method purchaseMealplan, groups Transaction, TestAll, purchaseMealplan
+		priority 11, method purchaseParkingPlan, groups Transaction, TestAll, purchaseParkingPlan
+		
+		
+   		 		-->  
+   		 
+   		<include name="Initialization" /><!-- Groups -->   		
+   		<include name="TestAll" /><!-- Groups --> 		
+    </run>	
+  </groups>	
+  <classes>
+    <class name="com.itcsystems.www.TestApplication"/>       
+  </classes>
+ </test>
+</suite> 

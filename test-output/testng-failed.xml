@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="password" value="1234"/>
+  <parameter name="webDriver" value=".\\lib\\chromedriver.exe"/>
+  <parameter name="filePath" value="C:\\Users\\chandra.rai\\Desktop\\web.config"/>
+  <parameter name="location" value=".\\Report\\Report.html"/>
+  <parameter name="cardNumber" value="1004300118073"/>
+  <parameter name="url" value="https://validation.itcsystems.com:443"/>
+  <test name="Test(failed)">
+    <parameter name="password" value="1234"/>
+    <parameter name="webDriver" value=".\\lib\\chromedriver.exe"/>
+    <parameter name="filePath" value="C:\\Users\\chandra.rai\\Desktop\\web.config"/>
+    <parameter name="location" value=".\\Report\\Report.html"/>
+    <parameter name="cardNumber" value="1004300118073"/>
+    <parameter name="url" value="https://validation.itcsystems.com:443"/>
+    <groups>
+      <run>
+        <include name="Initialization"/>
+        <include name="TestAll"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.itcsystems.www.TestApplication">
+        <methods>
+          <include name="getScreenshots"/>
+          <include name="addMoney" invocation-numbers="0"/>
+          <include name="purchaseMealplan" invocation-numbers="0"/>
+          <include name="initializeChrome"/>
+          <include name="validateBalanceRefund"/>
+          <include name="purchaseParkingPlan"/>
+          <include name="payFines"/>
+        </methods>
+      </class> <!-- com.itcsystems.www.TestApplication -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

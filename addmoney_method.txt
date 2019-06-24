@@ -1,0 +1,53 @@
+//Add money functionality test
+	@Test(priority=16, groups = {"T"})
+	public void addMoney() throws InterruptedException {
+		
+		Thread.sleep(7000);
+		
+		logger = report.startTest("ADD MONEY");		
+		
+		WebElement d = driver.findElement(By.xpath("//a[@title='Add Money']"));
+		d.click();
+		//driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		WebElement e = driver.findElement(By.xpath("//input[@id='ctl00_lgnView_cpMain_txtAmount']"));
+		e.sendKeys("1");	
+		logger.log(LogStatus.PASS, "Amount added.");
+				
+		WebElement f = driver.findElement(By.xpath("//div[@id='ctl00_lgnView_cpMain_pnlPaymentMethod']//span[2]"));
+		f.click();
+		logger.log(LogStatus.PASS, "Payment method selected.");
+		
+		WebElement g = driver.findElement(By.xpath("//input[@id='ctl00_lgnView_cpMain_btnNext']"));
+		g.click();	
+		WebElement h = driver.findElement(By.xpath("//input[@id=\'ctl00_lgnView_cpMain_ctl01_btnNext\']"));
+		h.click();
+		logger.log(LogStatus.PASS, "Next button clicked.");
+		
+		WebElement i = driver.findElement(By.xpath("//input[@id=\"cc_radio\"]"));
+		i.click();
+		logger.log(LogStatus.PASS, "Radio button clicked.");
+		
+		WebElement j = driver.findElement(By.xpath("//input[@id=\'cardholder\']"));
+		j.sendKeys("Nikhil");
+		logger.log(LogStatus.INFO, "Credit card holder name entered.");
+		
+		logger.log(LogStatus.INFO, "Credit card number entered.");
+		WebElement k = driver.findElement(By.xpath("//input[@id=\'pan\']"));
+		k.sendKeys("4030000010001234");
+		
+		logger.log(LogStatus.INFO, "Expiry date entered.");
+		WebElement l = driver.findElement(By.xpath("//input[@id=\'exp_date\']"));
+		l.sendKeys("0121");
+		
+		logger.log(LogStatus.PASS, "Process transaction.");
+		WebElement m = driver.findElement(By.xpath("//input[@id=\'buttonProcessCC\']"));
+		m.click();			
+			
+		//confirm to logout
+		//logger.log(LogStatus.INFO, "Alert confirmation accepted.");
+		//driver.switchTo().alert().accept();
+		//driver.quit();
+		
+		logger.log(LogStatus.PASS, "Add money functionality completed.");
+		report.flush();
+	}
